@@ -8,9 +8,6 @@
 </head>
 <body>
 
-  <!-- LOGO -->
-  <h1 class="logo" id="logo">Dunkers</h1>
-
 <!-- HEADER -->
 <header>
   <!-- LOGO -->
@@ -37,8 +34,8 @@
     <div class="indicator"></div>
   </nav>
 </header>
-  <!-- CONTENIDO -->
 
+<!-- CONTENIDO -->
 <main>
   <!-- NBA -->
   <section id="nba">
@@ -117,17 +114,16 @@
     <h2 class="section-title">Camisetas</h2>
     <div class="section-grid">
 
-<div class="section-item" 
-     data-name="Camiseta 1" 
-     data-price="$50.000" 
-     data-description="Camiseta Real Madrid 06/07" 
-     data-thumbs='[
-       "camisetas de futbol/camiseta real madrid 06-09/frente.jpg,
-       "camisetas%20de%20futbol/camiseta%20real%20madrid%2006-09/atras.jpg"
-     ]'>
-  <img src="camisetas de futbol/06-07 Real Madrid frente.jpg" alt="Camiseta 1">
-</div>
-
+      <div class="section-item" 
+           data-name="Camiseta 1" 
+           data-price="$50.000" 
+           data-description="Camiseta Real Madrid 06/07" 
+           data-thumbs='[
+             "camisetas de futbol/camiseta real madrid 06-09/frente.jpg",
+             "camisetas de futbol/camiseta real madrid 06-09/atras.jpg"
+           ]'>
+        <img src="camisetas de futbol/06-07 Real Madrid frente.jpg" alt="Camiseta 1">
+      </div>
 
       <div class="section-item" 
            data-name="Camiseta 2" 
@@ -150,7 +146,7 @@
              "camisetas de futbol/Imagen3b.jpg",
              "camisetas de futbol/Imagen3c.jpg"
            ]'>
-        <img src="camisetas de futbol/99-00 Real madrid  frente.jpg" alt="Camiseta 3">
+        <img src="camisetas de futbol/99-00 Real madrid frente.jpg" alt="Camiseta 3">
       </div>
     </div>
   </section>
@@ -246,33 +242,32 @@
   </section>
 </main>
 
+<!-- Categorías abajo (móvil) -->
+<nav class="categories bottom-categories" aria-label="Categorías móviles">
+  <a href="#nba">NBA</a>
+  <a href="#camperas">Camperas</a>
+  <a href="#camisetas">Camisetas</a>
+  <a href="#shorts">Shorts</a>
+  <a href="#f1">F1</a>
+  <a href="#rugby">Rugby</a>
+</nav>
 
-  <!-- Categorías abajo (móvil) -->
-  <nav class="categories bottom-categories" aria-label="Categorías móviles">
-    <a href="#nba">NBA</a>
-    <a href="#camperas">Camperas</a>
-    <a href="#camisetas">Camisetas</a>
-    <a href="#shorts">Shorts</a>
-    <a href="#f1">F1</a>
-    <a href="#rugby">Rugby</a>
-  </nav>
-
-  <!-- MODAL -->
-  <div id="productModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
-    <span class="close" aria-label="Cerrar">&times;</span>
-    <div class="modal-content">
-      <div class="modal-main">
-        <img id="modalImage" src="" alt="">
-        <div class="modal-thumbnails" id="modalThumbnails"></div>
-      </div>
-      <div class="modal-details">
-        <h2 id="modalName"></h2>
-        <p id="modalPrice"></p>
-        <p id="modalDescription"></p>
-      </div>
+<!-- MODAL -->
+<div id="productModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
+  <span class="close" aria-label="Cerrar">&times;</span>
+  <div class="modal-content">
+    <div class="modal-main">
+      <img id="modalImage" src="" alt="">
+      <div class="modal-thumbnails" id="modalThumbnails"></div>
+    </div>
+    <div class="modal-details">
+      <h2 id="modalName"></h2>
+      <p id="modalPrice"></p>
+      <p id="modalDescription"></p>
     </div>
   </div>
+</div>
 
-  <script src="scripts.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
