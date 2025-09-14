@@ -39,7 +39,6 @@ header {
   color: #000;
 }
 
-
 .top-bar nav a {
   margin-left: 30px;
   text-decoration: none;
@@ -144,14 +143,52 @@ main {
   position: relative;
 }
 
-.modal-main { flex: 1 1 50%; }
-.modal-main img { width: 100%; height: auto; object-fit: cover; background-color: #f3f3f3; }
-.modal-details { flex: 1 1 40%; display: flex; flex-direction: column; }
+/* Miniaturas columna (desktop) */
+.modal-thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 100px;
+}
+.modal-thumbnails img {
+  width: 100%;
+  max-height: 100px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* Imagen principal */
+.modal-main {
+  flex: 1 1 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-main img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Detalles */
+.modal-details {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 .modal-details h2 { margin: 0 0 10px; }
 .modal-details p { margin: 5px 0; }
-.modal-thumbnails { display: flex; flex-direction: column; gap: 10px; overflow-y: auto; max-height: 400px; margin-top: 20px; }
-.modal-thumbnails img { width: 100%; max-height: 100px; object-fit: cover; cursor: pointer; }
-.close { position: absolute; top: 20px; right: 40px; font-size: 30px; color: #000; cursor: pointer; z-index: 3000; }
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 30px;
+  color: #000;
+  cursor: pointer;
+  z-index: 3000;
+}
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
@@ -159,7 +196,43 @@ main {
   .logo { font-size: 60px; }
 }
 
-@media (max-width: 700px) {
+/* ===== MODAL RESPONSIVE PARA CELULAR ===== */
+@media (max-width: 768px) {
+  .modal-content {
+    flex-direction: column;
+    align-items: center;
+    max-width: 95%;
+  }
+
+  /* Miniaturas abajo en fila */
+  .modal-thumbnails {
+    flex-direction: row;
+    max-width: 100%;
+    order: 2;
+    justify-content: center;
+  }
+  .modal-thumbnails img {
+    width: 70px;
+    height: 70px;
+    max-height: none;
+  }
+
+  /* Foto principal ocupa todo el ancho */
+  .modal-main {
+    order: 1;
+    width: 100%;
+  }
+  .modal-main img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Detalles debajo */
+  .modal-details {
+    order: 3;
+    text-align: center;
+  }
+
   header { padding: 10px 20px; }
   .logo { font-size: 40px; text-align: center; }
   .top-categories { display: none; }
