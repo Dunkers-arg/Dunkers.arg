@@ -260,3 +260,19 @@ main {
 
   body { padding-bottom: 60px; }
 }
+/* --- BOTÓN WHATSAPP --- */
+.whatsapp-btn {
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 12px 18px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebe5d;
+}
