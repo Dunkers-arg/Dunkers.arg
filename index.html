@@ -8,46 +8,33 @@
 </head>
 <body>
 
-  <!-- LOGO -->
-  <h1 class="logo" id="logo">Dunkers</h1>
-
   <!-- HEADER -->
-ChatGPT dijo:
+  <header>
+    <!-- LOGO -->
+    <h1 class="logo" id="logo">Dunkers</h1>
 
-¡Perfecto! 😎 Ahora entendí bien lo que querés: que el logo Dunkers esté dentro del header, cubierto por el fondo blanco, y que todo el bloque del header (con el logo, menú y categorías) baje y acompañe al usuario durante el scroll.
+    <!-- Barra superior -->
+    <div class="top-bar">
+      <nav aria-label="Menú principal">
+        <a href="#">Buscar</a>
+        <a href="#">Iniciar sesión</a>
+        <a href="#">Ayuda</a>
+        <a href="#">Cesta [0]</a>
+      </nav>
+    </div>
 
-Eso se logra dejando el header como fixed (ya lo tenías), pero quitamos el position: fixed; del logo para que forme parte del header.
-
-✅ HTML (cambiado)
-
-Sacamos el logo de afuera y lo ponemos arriba, dentro del <header>:
-
-<!-- HEADER -->
-<header>
-  <!-- LOGO -->
-  <h1 class="logo" id="logo">Dunkers</h1>
-
-  <!-- Barra superior -->
-  <div class="top-bar">
-    <nav aria-label="Menú principal">
-      <a href="#">Buscar</a>
-      <a href="#">Iniciar sesión</a>
-      <a href="#">Ayuda</a>
-      <a href="#">Cesta [0]</a>
+    <!-- Categorías -->
+    <nav class="categories top-categories" aria-label="Categorías">
+      <a href="#nba">NBA</a>
+      <a href="#camperas">Camperas</a>
+      <a href="#camisetas">Camisetas</a>
+      <a href="#shorts">Shorts</a>
+      <a href="#f1">F1</a>
+      <a href="#rugby">Rugby</a>
+      <div class="indicator"></div>
     </nav>
-  </div>
+  </header>
 
-  <!-- Categorías -->
-  <nav class="categories top-categories" aria-label="Categorías">
-    <a href="#nba">NBA</a>
-    <a href="#camperas">Camperas</a>
-    <a href="#camisetas">Camisetas</a>
-    <a href="#shorts">Shorts</a>
-    <a href="#f1">F1</a>
-    <a href="#rugby">Rugby</a>
-    <div class="indicator"></div>
-  </nav>
-</header>
   <!-- CONTENIDO -->
   <main>
     <!-- NBA -->
@@ -62,10 +49,6 @@ Sacamos el logo de afuera y lo ponemos arriba, dentro del <header>:
         </div>
         <div class="section-item"><img src="camisetas%20NBA/IMG-20250901-WA0136.jpg" alt="NBA 3"></div>
         <div class="section-item"><img src="camisetas%20NBA/IMG-20250901-WA0140.jpg" alt="NBA 4"></div>
-        <div class="section-item"><img src="camisetas%20NBA/IMG-20250901-WA0144.jpg" alt="NBA 5"></div>
-        <div class="section-item"><img src="camisetas%20NBA/IMG-20250901-WA0145.jpg" alt="NBA 6"></div>
-        <div class="section-item"><img src="https://via.placeholder.com/750x750?text=NBA+7" alt="NBA 7"></div>
-        <div class="section-item"><img src="https://via.placeholder.com/750x750?text=NBA+8" alt="NBA 8"></div>
       </div>
     </section>
 
@@ -75,12 +58,6 @@ Sacamos el logo de afuera y lo ponemos arriba, dentro del <header>:
       <div class="section-grid">
         <div class="section-item"><img src="camperas%20de%20futbol/IMG-20250901-WA0148.jpg" alt="Campera 1"></div>
         <div class="section-item"><img src="camperas%20de%20futbol/IMG-20250901-WA0150.jpg" alt="Campera 2"></div>
-        <div class="section-item"><img src="camperas%20de%20futbol/IMG-20250901-WA0153.jpg" alt="Campera 3"></div>
-        <div class="section-item"><img src="camperas%20de%20futbol/IMG-20250901-WA0156.jpg" alt="Campera 4"></div>
-        <div class="section-item"><img src="camperas%20de%20futbol/IMG-20250901-WA0157.jpg" alt="Campera 5"></div>
-        <div class="section-item"><img src="camperas%20de%20futbol/IMG-20250901-WA0159.jpg" alt="Campera 6"></div>
-        <div class="section-item"><img src="camperas%20de%20futbol/IMG-20250901-WA0162.jpg" alt="Campera 7"></div>
-        <div class="section-item"><img src="https://via.placeholder.com/750x750?text=Campera+8" alt="Campera 8"></div>
       </div>
     </section>
 
@@ -90,9 +67,6 @@ Sacamos el logo de afuera y lo ponemos arriba, dentro del <header>:
       <div class="section-grid">
         <div class="section-item"><img src="camisetas%20de%20futbol/IMG-20250901-WA0082.jpg" alt="Camiseta 1"></div>
         <div class="section-item"><img src="camisetas%20de%20futbol/IMG-20250901-WA0083.jpg" alt="Camiseta 2"></div>
-        <div class="section-item"><img src="camisetas%20de%20futbol/IMG-20250901-WA0087.jpg" alt="Camiseta 3"></div>
-        <div class="section-item"><img src="camisetas%20de%20futbol/IMG-20250901-WA0089.jpg" alt="Camiseta 4"></div>
-        <!-- ... y así hasta tu última camiseta -->
       </div>
     </section>
 
@@ -102,9 +76,6 @@ Sacamos el logo de afuera y lo ponemos arriba, dentro del <header>:
       <div class="section-grid">
         <div class="section-item"><img src="shorts/IMG-20250901-WA0165.jpg" alt="Short 1"></div>
         <div class="section-item"><img src="shorts/IMG-20250901-WA0167.jpg" alt="Short 2"></div>
-        <div class="section-item"><img src="shorts/IMG-20250901-WA0169.jpg" alt="Short 3"></div>
-        <div class="section-item"><img src="shorts/IMG-20250901-WA0171.jpg" alt="Short 4"></div>
-        <!-- ... hasta tu último short -->
       </div>
     </section>
 
@@ -114,9 +85,6 @@ Sacamos el logo de afuera y lo ponemos arriba, dentro del <header>:
       <div class="section-grid">
         <div class="section-item"><img src="https://via.placeholder.com/750x750?text=F1+1" alt="F1 1"></div>
         <div class="section-item"><img src="https://via.placeholder.com/750x750?text=F1+2" alt="F1 2"></div>
-        <div class="section-item"><img src="https://via.placeholder.com/750x750?text=F1+3" alt="F1 3"></div>
-        <div class="section-item"><img src="https://via.placeholder.com/750x750?text=F1+4" alt="F1 4"></div>
-        <!-- ... hasta F1 8 -->
       </div>
     </section>
 
@@ -126,12 +94,6 @@ Sacamos el logo de afuera y lo ponemos arriba, dentro del <header>:
       <div class="section-grid">
         <div class="section-item"><img src="https://via.placeholder.com/750x750?text=Rugby+1" alt="Rugby 1"></div>
         <div class="section-item"><img src="https://via.placeholder.com/750x750?text=Rugby+2" alt="Rugby 2"></div>
-        <div class="section-item"><img src="https://via.placeholder.com/750x750?text=Rugby+3" alt="Rugby 3"></div>
-        <div class="section-item"><img src="https://via.placeholder.com/750x750?text=Rugby+4" alt="Rugby 4"></div>
-        <div class="section-item"><img src="https://via.placeholder.com/750x750?text=Rugby+5" alt="Rugby 5"></div>
-        <div class="section-item"><img src="https://via.placeholder.com/750x750?text=Rugby+6" alt="Rugby 6"></div>
-        <div class="section-item"><img src="https://via.placeholder.com/750x750?text=Rugby+7" alt="Rugby 7"></div>
-        <div class="section-item"><img src="https://via.placeholder.com/750x750?text=Rugby+8" alt="Rugby 8"></div>
       </div>
     </section>
   </main>
