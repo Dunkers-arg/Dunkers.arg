@@ -1,7 +1,7 @@
 // Click en Dunkers vuelve al inicio
 const logo = document.getElementById('logo');
 if (logo) {
-  logo.addEventListener('click', () =>
+  logo.addEventListener('click', () => 
     window.scrollTo({ top: 0, behavior: 'smooth' })
   );
 }
@@ -14,22 +14,17 @@ const modalPrice = document.getElementById("modalPrice");
 const modalDescription = document.getElementById("modalDescription");
 const closeBtn = document.querySelector(".close");
 const thumbnailsContainer = document.getElementById("modalThumbnails");
-const whatsappLink = document.getElementById("whatsappLink");
 
-// Abrir modal con datos del producto
+// Abrir modal
 document.querySelectorAll('.section-item').forEach(item => {
   item.addEventListener('click', () => {
     document.body.style.overflow = "hidden";
     modal.style.display = "block";
 
     // Datos del producto
-    const name = item.dataset.name || "";
-    const price = item.dataset.price || "";
-    const description = item.dataset.description || "";
-
-    modalName.textContent = name;
-    modalPrice.textContent = price;
-    modalDescription.textContent = description;
+    modalName.textContent = item.dataset.name || "";
+    modalPrice.textContent = item.dataset.price || "";
+    modalDescription.textContent = item.dataset.description || "";
 
     // Thumbs desde data-thumbs
     let thumbs = [];
@@ -39,7 +34,7 @@ document.querySelectorAll('.section-item').forEach(item => {
       console.error("Error leyendo data-thumbs", e);
     }
 
-    // Mostrar imagen principal (primera del array o la img normal)
+    // Mostrar imagen principal (primera del array)
     if (thumbs.length > 0) {
       modalImg.src = thumbs[0];
     } else {
@@ -51,7 +46,7 @@ document.querySelectorAll('.section-item').forEach(item => {
     thumbs.forEach((src, index) => {
       const thumb = document.createElement("img");
       thumb.src = src;
-      thumb.alt = name + " miniatura";
+      thumb.alt = modalName.textContent + " miniatura";
 
       // primera activa por defecto
       if (index === 0) thumb.classList.add("active");
@@ -60,18 +55,12 @@ document.querySelectorAll('.section-item').forEach(item => {
         modalImg.src = src;
 
         // Cambiar borde activo
-        thumbnailsContainer.querySelectorAll("img").forEach(img => img.classList.remove("active"));
+        document.querySelectorAll("#modalThumbnails img").forEach(img => img.classList.remove("active"));
         thumb.classList.add("active");
       });
 
       thumbnailsContainer.appendChild(thumb);
     });
-
-    // Configurar botón de WhatsApp
-    if (whatsappLink) {
-      const message = `Hola, estoy interesado en *${name}* (${description}) con precio ${price}.`;
-      whatsappLink.href = `https://wa.me/5491130856365?text=${encodeURIComponent(message)}`;
-    }
   });
 });
 
@@ -113,4 +102,19 @@ window.addEventListener('load', () => {
     indicator.style.width = first.offsetWidth + 'px';
     indicator.style.left = first.offsetLeft + 'px';
   }
+});
+const whatsappBtn = document.getElementById("whatsappBtn");
+
+document.querySelectorAll('.section-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const name = item.getAttribute('data-name');
+    const price = item.getAttribute('data-price');
+    const description = item.getAttribute('data-description');
+
+    // Mensaje para WhatsApp
+    const message = `Hola, estoy interesado en *${name}* (${description}) con precio ${price}.`;
+
+    // Enlazar con tu número
+    whatsappBtn.href = `https://wa.me/5491130856365?text=${encodeURIComponent(message)}`;
+  });
 });
