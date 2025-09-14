@@ -119,34 +119,32 @@
            data-price="$50.000" 
            data-description="Camiseta Real Madrid 06/07" 
            data-thumbs='[
-             "camisetas de futbol/camiseta real madrid 06-09/frente.jpg",
-             "camisetas de futbol/camiseta real madrid 06-09/atras.jpg"
+             "camisetas de futbol/real madrid 06-07 frente.jpg",
+             "camisetas de futbol/real madrid 06-07 atras.jpg"
            ]'>
-        <img src="camisetas de futbol/06-07 Real Madrid frente.jpg" alt="Camiseta 1">
+        <img src="camisetas de futbol/real madrid 06-07 frente.jpg" alt="Camiseta 1">
       </div>
+<div class="section-item" 
+     data-name="Camiseta 2" 
+     data-price="$55.000" 
+     data-description="real madrid 99-00" 
+     data-thumbs='[
+       "camisetas de futbol/real madrid 99-00 frente.jpg",
+       "camisetas%20de%20futbol/real%20madrid%2099-00%20atras.jpg"
+     ]'>
+  <img src="camisetas de futbol/real madrid 99-00 frente.jpg" alt="Camiseta 2">
+</div>
 
-      <div class="section-item" 
-           data-name="Camiseta 2" 
-           data-price="$55.000" 
-           data-description="Camiseta Boca Juniors edición especial" 
-           data-thumbs='[
-             "camisetas de futbol/Imagen2a.jpg",
-             "camisetas de futbol/Imagen2b.jpg",
-             "camisetas de futbol/Imagen2c.jpg"
-           ]'>
-        <img src="camisetas de futbol/2024 Brasil frente.jpg" alt="Camiseta 2">
-      </div>
 
       <div class="section-item" 
            data-name="Camiseta 3" 
-           data-price="$60.000" 
-           data-description="Camiseta River Plate retro" 
+           data-price="$50.000" 
+           data-description="Camiseta Real Madrid 06/07" 
            data-thumbs='[
-             "camisetas de futbol/Imagen3a.jpg",
-             "camisetas de futbol/Imagen3b.jpg",
-             "camisetas de futbol/Imagen3c.jpg"
+             "camisetas de futbol/2024 brasil frente.jpg",
+             "camisetas de futbol/2024 brasil atras.jpg"
            ]'>
-        <img src="camisetas de futbol/99-00 Real madrid frente.jpg" alt="Camiseta 3">
+        <img src="camisetas de futbol/2024 brasil frente.jpg" alt="Camiseta 3">
       </div>
     </div>
   </section>
@@ -256,15 +254,22 @@
 <div id="productModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalName">
   <span class="close" aria-label="Cerrar">&times;</span>
   <div class="modal-content">
+
+    <!-- Miniaturas a la izquierda -->
+    <div class="modal-thumbnails" id="modalThumbnails"></div>
+
+    <!-- Imagen principal -->
     <div class="modal-main">
       <img id="modalImage" src="" alt="">
-      <div class="modal-thumbnails" id="modalThumbnails"></div>
     </div>
+
+    <!-- Detalles a la derecha -->
     <div class="modal-details">
       <h2 id="modalName"></h2>
       <p id="modalPrice"></p>
       <p id="modalDescription"></p>
     </div>
+
   </div>
 </div>
 
