@@ -109,45 +109,47 @@
     </div>
   </section>
 
-  <!-- Camisetas -->
-  <section id="camisetas">
-    <h2 class="section-title">Camisetas</h2>
-    <div class="section-grid">
+<!-- Camisetas -->
+<section id="camisetas">
+  <h2 class="section-title">Camisetas</h2>
+  <div class="section-grid">
 
-      <div class="section-item" 
-           data-name="Camiseta 1" 
-           data-price="$50.000" 
-           data-description="Camiseta Real Madrid 06/07" 
-           data-thumbs='[
-             "camisetas de futbol/real madrid 06-07 frente.jpg",
-             "camisetas de futbol/real madrid 06-07 atras.jpg"
-           ]'>
-        <img src="camisetas de futbol/real madrid 06-07 frente.jpg" alt="Camiseta 1">
-      </div>
-<div class="section-item" 
-     data-name="Camiseta 2" 
-     data-price="$55.000" 
-     data-description="real madrid 99-00" 
-     data-thumbs='[
-       "camisetas de futbol/real madrid 99-00 frente.jpg",
-       "camisetas%20de%20futbol/real%20madrid%2099-00%20atras.jpg"
-     ]'>
-  <img src="camisetas de futbol/real madrid 99-00 frente.jpg" alt="Camiseta 2">
-</div>
-
-
-      <div class="section-item" 
-           data-name="Camiseta 3" 
-           data-price="$50.000" 
-           data-description="Camiseta Real Madrid 06/07" 
-           data-thumbs='[
-             "camisetas de futbol/2024 brasil frente.jpg",
-             "camisetas de futbol/2024 brasil atras.jpg"
-           ]'>
-        <img src="camisetas de futbol/2024 brasil frente.jpg" alt="Camiseta 3">
-      </div>
+    <!-- Camiseta 1 -->
+    <div class="section-item" 
+         data-name="Real Madrid 06/07" 
+         data-price="$50.000"
+         data-thumbs='[
+           "camisetas de futbol/real madrid 06-07 frente.jpg",
+           "camisetas de futbol/real madrid 06-07 atras.jpg"
+         ]'>
+      <img src="camisetas de futbol/real madrid 06-07 frente.jpg" alt="Real Madrid 06/07">
     </div>
-  </section>
+
+    <!-- Camiseta 2 -->
+    <div class="section-item" 
+         data-name="Real Madrid 99/00" 
+         data-price="$55.000"
+         data-thumbs='[
+           "camisetas de futbol/real madrid 99-00 frente.jpg",
+           "camisetas de futbol/real madrid 99-00 atras.jpg"
+         ]'>
+      <img src="camisetas de futbol/real madrid 99-00 frente.jpg" alt="Real Madrid 99/00">
+    </div>
+
+    <!-- Camiseta 3 -->
+    <div class="section-item" 
+         data-name="Brasil 2024" 
+         data-price="$50.000"
+         data-thumbs='[
+           "camisetas de futbol/2024 brasil frente.jpg",
+           "camisetas de futbol/2024 brasil atras.jpg"
+         ]'>
+      <img src="camisetas de futbol/2024 brasil frente.jpg" alt="Brasil 2024">
+    </div>
+
+  </div>
+</section>
+
 
   <!-- Shorts -->
   <section id="shorts">
@@ -255,7 +257,7 @@
   <span class="close" aria-label="Cerrar">&times;</span>
   <div class="modal-content">
 
-    <!-- Miniaturas a la izquierda -->
+    <!-- Miniaturas -->
     <div class="modal-thumbnails" id="modalThumbnails"></div>
 
     <!-- Imagen principal -->
@@ -263,14 +265,24 @@
       <img id="modalImage" src="" alt="">
     </div>
 
-    <!-- Detalles a la derecha -->
+    <!-- Detalles -->
     <div class="modal-details">
       <h2 id="modalName"></h2>
       <p id="modalPrice"></p>
-      <p id="modalDescription"></p>
+
+      <!-- Selector de talles -->
+      <label for="talleSelect"><strong>Talle:</strong></label>
+      <select id="talleSelect" name="talle">
+        <option value="XS">XS</option>
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+        <option value="XL">XL</option>
+      </select>
+
+      <!-- Botón WhatsApp -->
       <a id="whatsappBtn" class="whatsapp-btn" target="_blank">Pedir por WhatsApp</a>
     </div>
-
   </div>
 </div>
 
