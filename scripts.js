@@ -57,20 +57,28 @@ document.querySelectorAll('.section-item').forEach(item => {
         modalImg.src = src;
         thumbnailsContainer.querySelectorAll("img").forEach(img => img.classList.remove("active"));
         thumb.classList.add("active");
+
+        // Actualizar WhatsApp con la nueva foto
+        updateWhatsApp();
       });
 
       thumbnailsContainer.appendChild(thumb);
     });
 
-    // Configurar botón de WhatsApp dinámico
-    if (whatsappBtn && talleSelect) {
-      const updateWhatsApp = () => {
-        const talle = talleSelect.value;
-        const message = `Hola, estoy interesado en *${name}* (talle ${talle}) con precio ${price}.`;
+    // Función para actualizar el enlace de WhatsApp
+    const updateWhatsApp = () => {
+      if (whatsappBtn && talleSelect) {
+        const talle = talleSelect.value || "Sin talle";
+        const mainImage = modalImg.src;
+        const message = `Hola, estoy interesado en *${name}* con precio ${price}.
+Talle: ${talle}
+Foto: ${mainImage}`;
         whatsappBtn.href = `https://wa.me/5491130856365?text=${encodeURIComponent(message)}`;
-      };
+      }
+    };
 
-      // Actualiza al abrir y cuando cambie el talle
+    // Configurar WhatsApp al abrir
+    if (whatsappBtn && talleSelect) {
       talleSelect.onchange = updateWhatsApp;
       updateWhatsApp();
     }
