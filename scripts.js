@@ -124,3 +124,34 @@ window.addEventListener('load', () => {
     indicator.style.left = first.offsetLeft + 'px';
   }
 });
+// --- BUSCADOR ---
+const searchBtn = document.querySelector(".search-btn");
+const searchInput = document.querySelector(".search-input");
+
+if (searchBtn && searchInput) {
+  searchBtn.addEventListener("click", () => {
+    searchInput.classList.toggle("active");
+    if (searchInput.classList.contains("active")) {
+      searchInput.focus();
+    } else {
+      searchInput.value = "";
+    }
+  });
+}
+// --- FILTRO DE PRODUCTOS ---
+if (searchInput) {
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase().trim();
+
+    document.querySelectorAll(".section-item").forEach(item => {
+      const name = (item.dataset.name || "").toLowerCase();
+      const description = (item.dataset.description || "").toLowerCase();
+
+      if (name.includes(query) || description.includes(query)) {
+        item.style.display = "flex"; // se muestra
+      } else {
+        item.style.display = "none"; // se oculta
+      }
+    });
+  });
+}
