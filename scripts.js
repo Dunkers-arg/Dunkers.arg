@@ -99,31 +99,24 @@ window.onclick = e => {
   }
 };
 
-// Categorías indicador
-const links = document.querySelectorAll('.categories a');
-const indicator = document.querySelector('.categories .indicator');
-
-links.forEach(link => {
+// --- NAVEGACIÓN DE CATEGORÍAS (abajo con offset) ---
+document.querySelectorAll('.categories a').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
-    indicator.style.width = link.offsetWidth + 'px';
-    indicator.style.left = link.offsetLeft + 'px';
-
     const target = document.querySelector(link.getAttribute('href'));
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const headerOffset = 100; // altura extra para que no quede tapado
+      const elementPosition = target.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
   });
 });
 
-// Inicializar indicador en la primera categoría
-window.addEventListener('load', () => {
-  if (links.length > 0) {
-    const first = links[0];
-    indicator.style.width = first.offsetWidth + 'px';
-    indicator.style.left = first.offsetLeft + 'px';
-  }
-});
 // --- BUSCADOR ---
 const searchBtn = document.querySelector(".search-btn");
 const searchInput = document.querySelector(".search-input");
@@ -138,6 +131,7 @@ if (searchBtn && searchInput) {
     }
   });
 }
+
 // --- FILTRO DE PRODUCTOS ---
 if (searchInput) {
   searchInput.addEventListener("input", () => {
