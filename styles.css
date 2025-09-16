@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
 }
 
-/* HEADER */
+/* HEADER reducido */
 header {
   position: fixed;
   top: 0;
@@ -21,23 +21,23 @@ header {
   right: 0;
   z-index: 900;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   background-color: #fff;
-  padding: 120px 50px 20px 50px; /* espacio para Dunkers */
+  padding: 10px 20px; /* menos espacio */
   border-bottom: 1px solid #ddd;
 }
 
-/* LOGO */
+/* LOGO más compacto */
 .logo {
   font-family: 'Owned', serif;
-  font-size: 80px;
-  letter-spacing: -2px;
-  font-weight: normal;
-  margin: 0 0 15px 0;
-  text-align: center;
+  font-size: 36px; /* antes estaba gigante */
+  letter-spacing: -1px;
+  margin: 0;
   color: #000;
+  cursor: pointer;
 }
+
 
 .top-bar nav a {
   margin-left: 30px;
@@ -47,43 +47,12 @@ header {
   text-transform: uppercase;
 }
 
-/* CATEGORÍAS */
-.categories {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  position: relative;
-  padding: 10px 0;
-  overflow-x: auto;
-}
-
-.categories a {
-  text-decoration: none;
-  color: #000;
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  position: relative;
-  cursor: pointer;
-  white-space: nowrap;
-  padding-bottom: 5px;
-}
-
-.categories .indicator {
-  position: absolute;
-  bottom: 0;
-  height: 2px;
-  background-color: black;
-  transition: all 0.3s ease;
-  width: 0;
-  left: 0;
-}
-
 /* MAIN */
 main {
-  margin-top: 100px;
-  padding: 0 50px;
+  margin-top: 80px; /* menos espacio que antes */
+  padding: 0 20px;
 }
+
 
 .section-title {
   text-align: center;
@@ -275,4 +244,52 @@ main {
 
 .whatsapp-btn:hover {
   background-color: #1ebe5d;
+}
+/* Ocultar categorías superiores */
+.top-categories {
+  display: none !important;
+}
+
+/* BUSCADOR */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  background: #f9f9f9;
+  margin-right: 5px;
+}
+
+.search-input.active {
+  width: 160px;
+  opacity: 1;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.search-btn:hover {
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .search-input.active {
+    width: 120px;
+  }
 }
