@@ -16,20 +16,49 @@ const thumbnailsContainer = document.getElementById("modalThumbnails");
 const whatsappBtn = document.getElementById("whatsappBtn");
 const talleSelect = document.getElementById("talleSelect");
 
+// --- LISTA DE CAMISETAS CON VERSIONES ---
+const productosConVersion = {
+  "Liverpool 25-26": { PV: "$55.000", FV: "$50.000" },
+  "Chelsea 25-26": { PV: "$55.000", FV: "$50.000" },
+  "Chelsea 24-25": { PV: "$55.000", FV: "$50.000" },
+  "Newcastle 24-25": { PV: "$55.000", FV: "$50.000" },
+  "PSG 24-25": { PV: "$55.000", FV: "$50.000" },
+  "River Plate 25-26": { PV: "$55.000", FV: "$50.000" },
+  "River Plate Visitante 25-26": { PV: "$55.000", FV: "$50.000" },
+  "Boca Juniors 25-26": { PV: "$55.000", FV: "$50.000" },
+  "Boca Juniors 25-26 visitante": { PV: "$55.000", FV: "$50.000" },
+  "Racing 25-26": { PV: "$55.000", FV: "$50.000" },
+  "Argentina 2024": { PV: "$55.000", FV: "$50.000" },
+  "Argentina 2024 Visitante": { PV: "$55.000", FV: "$50.000" },
+  "España 2024": { PV: "$55.000", FV: "$50.000" },
+  "Italia 2024": { PV: "$55.000", FV: "$50.000" },
+  "Barcelona 25-26": { PV: "$55.000", FV: "$50.000" },
+  "Barcelona 25-26 Visitante": { PV: "$55.000", FV: "$50.000" },
+  "Real Madrid 25-26": { PV: "$55.000", FV: "$50.000" },
+  "Arsenal 25-26": { PV: "$55.000", FV: "$50.000" },
+  "PSG 25-26": { PV: "$55.000", FV: "$50.000" },
+  "Napoli 25-26": { PV: "$55.000", FV: "$50.000" },
+  "Inter de Miami 25-26": { PV: "$55.000", FV: "$50.000" },
+  "Inter de Miami 25-26 Visitante": { PV: "$55.000", FV: "$50.000" },
+  "Independiente 25-26": { PV: "$55.000", FV: "$50.000" }
+};
+
+let versionContainer;
+let versionSelect;
+
 // Abrir modal
 document.querySelectorAll('.section-item').forEach(item => {
   item.addEventListener('click', () => {
     document.body.style.overflow = "hidden";
     modal.style.display = "block";
 
-    // Datos del producto
     const name = item.dataset.name || "";
     const price = item.dataset.price || "";
 
     modalName.textContent = name;
     modalPrice.textContent = price;
 
-    // Thumbs desde data-thumbs
+    // Thumbs
     let thumbs = [];
     try {
       thumbs = JSON.parse(item.dataset.thumbs || "[]");
@@ -37,12 +66,7 @@ document.querySelectorAll('.section-item').forEach(item => {
       console.error("Error leyendo data-thumbs", e);
     }
 
-    // Mostrar imagen principal (primera del array o la img normal)
-    if (thumbs.length > 0) {
-      modalImg.src = thumbs[0];
-    } else {
-      modalImg.src = item.querySelector("img").src;
-    }
+    modalImg.src = thumbs.length > 0 ? thumbs[0] : item.querySelector("img").src;
 
     // Miniaturas
     thumbnailsContainer.innerHTML = "";
@@ -57,31 +81,73 @@ document.querySelectorAll('.section-item').forEach(item => {
         modalImg.src = src;
         thumbnailsContainer.querySelectorAll("img").forEach(img => img.classList.remove("active"));
         thumb.classList.add("active");
-
-        // Actualizar WhatsApp con la nueva foto
         updateWhatsApp();
       });
 
       thumbnailsContainer.appendChild(thumb);
     });
 
-    // Función para actualizar el enlace de WhatsApp
+    // --- función updateWhatsApp ---
     const updateWhatsApp = () => {
       if (whatsappBtn && talleSelect) {
         const talle = talleSelect.value || "Sin talle";
         const mainImage = modalImg.src;
-        const message = `Hola, estoy interesado en *${name}* con precio ${price}.
+        const version = (versionSelect && versionContainer?.style.display !== "none") 
+          ? versionSelect.value 
+          : "N/A";
+        const precio = modalPrice.textContent;
+
+        const message = `Hola, estoy interesado en *${name}*.
+Versión: ${version}
 Talle: ${talle}
+Precio: ${precio}
 Foto: ${mainImage}`;
+
         whatsappBtn.href = `https://wa.me/5491130856365?text=${encodeURIComponent(message)}`;
       }
     };
 
-    // Configurar WhatsApp al abrir
-    if (whatsappBtn && talleSelect) {
-      talleSelect.onchange = updateWhatsApp;
-      updateWhatsApp();
+    // --- SI EL PRODUCTO TIENE VERSIONES ---
+    if (productosConVersion[name]) {
+      if (!versionContainer) {
+        versionContainer = document.createElement("div");
+        versionContainer.classList.add("version-container");
+
+        const label = document.createElement("label");
+        label.htmlFor = "versionSelect";
+        label.innerHTML = "<strong>Versión:</strong>";
+
+        versionSelect = document.createElement("select");
+        versionSelect.id = "versionSelect";
+        versionSelect.innerHTML = `
+          <option value="FV">Fan Version</option>
+          <option value="PV">Player Version</option>
+        `;
+
+        versionContainer.appendChild(label);
+        versionContainer.appendChild(versionSelect);
+        talleSelect.insertAdjacentElement("afterend", versionContainer);
+      }
+
+      versionContainer.style.display = "block";
+      versionSelect.value = "FV"; // default
+      modalPrice.textContent = productosConVersion[name].FV;
+
+      // cambio de versión → cambia precio + WhatsApp
+      versionSelect.onchange = () => {
+        const version = versionSelect.value;
+        modalPrice.textContent = productosConVersion[name][version];
+        updateWhatsApp();
+      };
+    } else {
+      if (versionContainer) {
+        versionContainer.style.display = "none";
+      }
     }
+
+    // talle dispara actualización
+    talleSelect.onchange = updateWhatsApp;
+    updateWhatsApp();
   });
 });
 
@@ -99,13 +165,13 @@ window.onclick = e => {
   }
 };
 
-// --- NAVEGACIÓN DE CATEGORÍAS (abajo con offset) ---
+// --- NAVEGACIÓN DE CATEGORÍAS ---
 document.querySelectorAll('.categories a').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
     const target = document.querySelector(link.getAttribute('href'));
     if (target) {
-      const headerOffset = 100; // altura extra para que no quede tapado
+      const headerOffset = 100;
       const elementPosition = target.getBoundingClientRect().top + window.scrollY;
       const offsetPosition = elementPosition - headerOffset;
 
@@ -142,9 +208,9 @@ if (searchInput) {
       const description = (item.dataset.description || "").toLowerCase();
 
       if (name.includes(query) || description.includes(query)) {
-        item.style.display = "flex"; // se muestra
+        item.style.display = "flex";
       } else {
-        item.style.display = "none"; // se oculta
+        item.style.display = "none";
       }
     });
   });
