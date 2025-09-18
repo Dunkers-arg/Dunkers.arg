@@ -293,3 +293,38 @@ main {
     width: 120px;
   }
 }
+/* Selector de versión (más estético) */
+.version-container {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.version-container label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+}
+
+#versionSelect {
+  appearance: none; /* quita estilo feo nativo */
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+#versionSelect:hover {
+  border-color: #999;
+  background: #f1f1f1;
+}
+
+#versionSelect:focus {
+  outline: none;
+  border-color: #25D366; /* mismo color que WhatsApp para integrarlo */
+  box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
+}
