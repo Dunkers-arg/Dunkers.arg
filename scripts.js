@@ -23,6 +23,7 @@ const productosConVersion = {
   "Chelsea 24-25": { PV: "$55.000", FV: "$50.000" },
   "Newcastle 24-25": { PV: "$55.000", FV: "$50.000" },
   "PSG 24-25": { PV: "$55.000", FV: "$50.000" },
+  "PSG 24-25 Manga Larga": { PV: "$55.000", FV: "$50.000" },
   "River Plate 25-26": { PV: "$55.000", FV: "$50.000" },
   "River Plate Visitante 25-26": { PV: "$55.000", FV: "$50.000" },
   "Boca Juniors 25-26": { PV: "$55.000", FV: "$50.000" },
