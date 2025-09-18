@@ -328,3 +328,10 @@ main {
   border-color: #25D366; /* mismo color que WhatsApp para integrarlo */
   box-shadow: 0 0 0 2px rgba(37, 211, 102, 0.2);
 }
+#modalPrice {
+  font-size: 22px;   /* un poco más grande */
+  font-weight: 700;  /* negrita */
+  color: #111;       /* negro intenso */
+  margin: 10px 0 15px;
+  letter-spacing: 0.5px;
+}
